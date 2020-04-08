@@ -58,3 +58,44 @@ class Student {
 		return ectsCredits;
 	}
 }
+class Faculty extends Student{
+	List<Student>studentList=new ArrayList<Student>();
+	String nameOfFaculty;
+	Faculty(List<Student> studentList, String nameOfFaculty){
+		for(int i=0;i<studentList.size();i++){
+			this.studentList[i]=studentList;
+		}
+		this.nameOfFaculty=nameOfFaculty;
+
+		public double AverageECTSCredits(){
+			int numberOfStudents=0;
+			int numberOfEcts=0;
+			int sum=0;
+			for(int i=0;i<studentList.size();i++){
+				numberOfEcts=studentList[i].ECTSCredits();
+				sum+=numberOfEcts;
+				numberOfStudents++;
+
+			}
+			double average;
+			average=sum/numberOfStudents;
+			return average;
+		}
+		public double AverageGrade(){
+			int numOfAverageGrades=0;
+			double averageGrade=0;
+			int sum=0;
+			for(int i=0;i<studentList.size();i++){
+				averageGrade=studentList[i].getAverage();
+				sum+=averageGrade;
+				numOfAverageGrades++;
+
+			}
+		double averageG;
+			averageG=sum/numOfAverageGrades;
+			return averageG;
+		}
+	}
+
+
+}
